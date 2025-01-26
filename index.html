@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Order</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Box Order Company</h1>
+    <p>Simple and Reliable Box Orders</p>
+  </header>
+  <main>
+    <section class="order-section">
+      <h2>Place Your Order</h2>
+      <form action="#" id="orderForm">
+        <label for="boxType">Select Box Type:</label>
+        <select id="boxType" name="boxType" required>
+          <option value="" disabled selected>Select Box Type</option>
+          <option value="Small">Small Box</option>
+          <option value="Medium">Medium Box</option>
+          <option value="Large">Large Box</option>
+        </select>
+
+        <label for="quantity">Enter Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+
+        <button type="button" id="orderButton">Place Order</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Box Order Company</p>
+  </footer>
+
+  <script>
+    document.getElementById('orderButton').addEventListener('click', function() {
+      const boxType = document.getElementById('boxType').value;
+      const quantity = document.getElementById('quantity').value;
+
+      if (boxType && quantity) {
+        const message = `Hello, I want to order ${quantity} ${boxType} box(es).`;
+        const whatsappUrl = `https://wa.me/91xxxxxxxxxx?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+      } else {
+        alert('Please select a box type and enter the quantity.');
+      }
+    });
+  </script>
+</body>
+</html>
